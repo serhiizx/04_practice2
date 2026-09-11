@@ -1,0 +1,9 @@
+{
+  "JOB-BACKEND": {
+    "job_id": "JOB-BACKEND",
+    "title": "Backend Engineer",
+    "must_have": ["Python", "PostgreSQL", "Docker"],
+    "nice_to_have": ["Kubernetes", "LangGraph"],
+    "min_years": 3
+  }
+}

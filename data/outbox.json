@@ -1,0 +1,10 @@
+[
+  {
+    "candidate_id": "CAND-001",
+    "to": "o.kovalchuk@example.com",
+    "decision": "strong_match",
+    "subject": "Запрошення на співбесіду",
+    "body": "sdf",
+    "sent_at": "2026-09-12T08:42:35.380685+00:00"
+  }
+]

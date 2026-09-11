@@ -1,0 +1,11 @@
+__pycache__
+.pytest_cache
+.ruff_cache
+.venv
+.env
+*.local*
+agent_state.db
+agent_state.db-shm
+agent_state.db-wal
+.ipynb_checkpoints
+nbconvert-run.log

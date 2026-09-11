@@ -1,0 +1,43 @@
+# Конфігурація для uv. Запуск: uv run pytest -v
+# uv сам створить .venv і встановить залежності при першому запуску.
+
+[project]
+name = "practice2-hr-screening"
+version = "1.0.0"
+description = "Практична 2: MAS HR-скринінгу з MCP, guardrails і HITL"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=3.0",                      # кастомний MCP-сервер
+    "mcp>=1.2",                          # StdioServerParameters для CrewAI-клієнта
+    "langgraph>=1.0",
+    "langgraph-checkpoint-sqlite>=2.0",  # AsyncSqliteSaver для HITL
+    "langchain-core>=1.0",
+    "langchain-openai>=1.0",
+    "langchain-mcp-adapters>=0.1",       # MCP tools -> LangChain tools
+    "langchain>=1.0",                    # потрібен langfuse.langchain.CallbackHandler
+    "crewai>=0.80",
+    "crewai-tools[mcp]>=0.17",           # MCPServerAdapter
+    "langfuse>=3.0",                     # tracing обох реалізацій
+    "openinference-instrumentation-crewai>=0.1",  # OTEL-міст для CrewAI
+    "pydantic>=2.0",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "jupyter>=1.0",
+    "nbformat>=5.0",
+    "deepteam>=0.1",                     # бонус: red-teaming
+]
+
+# Проєкт — це набір скриптів, а не пакет для встановлення.
+[tool.uv]
+package = false
+
+# Тести живуть у tests/, модулі — у корені, тому корінь треба додати до sys.path.
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"
